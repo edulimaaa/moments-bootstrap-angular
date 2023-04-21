@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+/*Estilo da barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #5c636a;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #5ecbf1;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5ecaf1c2;
+}

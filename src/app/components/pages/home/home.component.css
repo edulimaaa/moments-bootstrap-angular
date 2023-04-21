@@ -1,0 +1,37 @@
+.search-container {
+  text-align: center;
+}
+
+.search-container form {
+  width: 30em;
+  margin: 2em auto;
+}
+
+.moments-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 25em;
+}
+
+h3,
+p,
+a {
+  display: block; /* torna o link um elemento de bloco para ocupar a largura total da div */
+  text-align: center;
+}
+
+a {
+  width: 8em;
+  margin: auto;
+}
+
+.no-moments {
+  text-align: center;
+  margin-top: 3em;
+}

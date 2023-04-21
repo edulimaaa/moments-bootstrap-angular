@@ -1,0 +1,52 @@
+<div class="search-container">
+  <h2>Veja o que estão compartilhando:</h2>
+  <form class="d-flex" role="search">
+    <div class="input-group">
+      <input
+        class="form-control"
+        type="search"
+        placeholder="Ou busque por um momento..."
+        aria-label="Search"
+        style="border-right: none"
+        (input)="search($event)"
+      />
+      <div class="input-group-append" style="border-left: none">
+        <div
+          class="input-group-text"
+          style="
+            background-color: #fff;
+            border-end-start-radius: 0;
+            border-start-start-radius: 0;
+          "
+        >
+          <i class="bi bi-search"></i>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<section class="moments-container" *ngIf="moments.length > 0; else noMoments">
+  <div *ngFor="let moment of allMoments">
+    <img
+      src="{{ baseApiUrl }}/uploads/{{ moment.image }}"
+      alt="{{ moment.title }}"
+    />
+    <h3>{{ moment.title }}</h3>
+    <p>{{ moment.created_at }}</p>
+    <p>Comentários: {{ moment.comments.length }}</p>
+    <a
+      class="btn btn-primary"
+      style="
+        --bs-btn-padding-y: 0.25rem;
+        --bs-btn-padding-x: 0.5rem;
+        --bs-btn-font-size: 0.75rem;
+      "
+      routerLink="moment/{{ moment.id }}"
+      >Detalhes</a
+    >
+  </div>
+</section>
+<ng-template #noMoments>
+  <h2 class="no-moments">Não há momentos!</h2>
+</ng-template>

@@ -1,0 +1,63 @@
+<section class="container" *ngIf="moment">
+  <div class="details">
+    <h1>{{ moment.title }}</h1>
+    <img
+      src="{{ baseApiUrl }}/uploads/{{ moment.image }}"
+      alt="{{ moment.title }}"
+    />
+    <h4>Sobre este momento:</h4>
+    <p>{{ moment.description }}</p>
+  </div>
+  <div class="actions">
+    <h4>Ações:</h4>
+    <a routerLink="/edit/{{ moment.id }}" class="btn btn-outline-primary"
+      >Editar</a
+    >
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="onDeleteMoment()"
+    >
+      Excluir
+    </button>
+  </div>
+  <div class="comments-container">
+    <h4>Comentários: {{ moment.comments.length }}</h4>
+    <div class="comments" *ngFor="let comment of moment?.comments">
+      <p class="comment-username">
+        <strong>{{ comment.username }}:</strong>
+      </p>
+      <p>{{ comment.text }}</p>
+    </div>
+    <ng-template #noComments>
+      <p>Não há commentários</p>
+    </ng-template>
+  </div>
+  <form
+    [formGroup]="commentForm"
+    #formDir="ngForm"
+    class="comments-form"
+    (ngSubmit)="onSubmit(formDir)"
+  >
+    <div class="mb-3">
+      <label for="comment-text" class="form-label">Comentário:</label>
+      <textarea
+        formControlName="text"
+        class="form-control"
+        id="comment-text"
+        rows="2"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="comment-name" class="form-label">Nome:</label>
+      <input
+        formControlName="username"
+        type="text"
+        class="form-control"
+        name="comment-name"
+        placeholder="Digite o seu nome"
+      />
+    </div>
+    <input class="btn btn-primary" type="submit" value="Comentar!" />
+  </form>
+</section>

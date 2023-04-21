@@ -1,0 +1,8 @@
+.form-container {
+  max-width: 42%;
+  margin: auto;
+}
+
+label {
+  font-weight: bold;
+}

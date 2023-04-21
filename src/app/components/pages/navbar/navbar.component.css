@@ -1,0 +1,24 @@
+nav {
+  border-bottom: 1px solid #2176c7;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.nav-link {
+  color: #000;
+  transition: 0.4s;
+}
+
+.nav-link:hover {
+  color: #45f6ff;
+}
+
+#share-link {
+  color: #2176c7;
+}
+
+#share-link:hover {
+  background-color: #45f6ff;
+}
